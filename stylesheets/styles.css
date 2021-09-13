@@ -139,3 +139,46 @@ a {
     bottom: -16px;
     left: 4px;
 }
+
+/*Ch5 media queries
+Bronze Challenge:
+    - update media query so that layout changes according to orientation and not based on width 
+
+old: `(min-width: 768px)`
+*/
+@media all and (orientation: landscape){
+    
+    .main-content {
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    .thumbnail-list {
+        flex-direction: column;
+        order: 0;
+        margin-left: 20px;
+    }
+
+    .thumbnail-item {
+        max-width: 260px;
+    }
+
+    .thumbnail-item + .thumbnail-item {
+        margin-top: 20px;
+    }
+
+    .chapter5{
+        max-height: 65%;
+        border: 2px solid black;
+        background-color: pink;
+        color: white;
+        margin-right:20px;
+    }
+    footer{
+        background-color: pink;
+        flex: 0 1 auto;
+        text-align: center;
+    }
+}
+
+/* bronze challenge attempt */
