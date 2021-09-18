@@ -40,11 +40,18 @@ a {
     /*width: 120px; */
     min-width: 120px;
     max-width: 120px;
+
+    /*Chapter 7 */
+    transition: transform 133ms ease-in-out;
 }
 
+/*chapter 7 */
+.thumbnail-item:hover {
+    transform: scale(1.2);
+}
 .thumbnail-list {
     list-style: none;
-    padding: 0;
+    padding: 20px 0;
 
     /*prevent thumbnail-list from wrapping and allow scrolling*/
     white-space: nowrap;
@@ -141,6 +148,23 @@ a {
     left: 4px;
 }
 
+
+/*Chapter 7: visual effects with css */
+
+.hidden-detail .detail-image-container {
+    display: none;
+}
+
+.hidden-detail .thumbnail-list {
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item {
+    max-width: 80%;
+}
+
+
 /*Ch5 media queries
 Bronze Challenge:
     - update media query so that layout changes according to orientation and not based on width 
@@ -158,7 +182,9 @@ old: `(min-width: 768px)`
         flex-direction: column;
         order: 0;
         margin-left: 20px;
-        margin-right: 20px;
+        
+        /*Chapter 7: Edit*/
+        padding: 0 35px;
     }
 
     .thumbnail-item {
@@ -172,3 +198,17 @@ old: `(min-width: 768px)`
 
 }
 
+/*Chapter 7: visual effects with css */
+
+.hidden-detail .detail-image-container {
+    display: none;
+}
+
+.hidden-detail .thumbnail-list {
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item {
+    max-width: 80%;
+}
