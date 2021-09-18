@@ -135,8 +135,17 @@ a {
 .detail-image-frame {
     text-align: center;
     position: relative;
+
+    transition: transform 333ms cubic-bezier(1, .06, .69, 1);
 }
 
+
+.is-tiny {
+    /*First, scale the element down to a small fraction of its original size */
+    transform: scale (0.001);
+    /*specifies that any transition for the transform property should last 0 milliseconds, applying the style  change immediately*/
+    transition: transform 0ms;
+}
 .detail-image-title {
     color: white;
     font-size: 40px;
@@ -212,3 +221,5 @@ old: `(min-width: 768px)`
 .hidden-detail .thumbnail-item {
     max-width: 80%;
 }
+
+/* buttons */
