@@ -4,7 +4,7 @@ var thumbnails = document.getElementsByClassName("thumbnail-item");
 
 var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
-var THUMBNAIL_LINK_SELECTOR= '[data-image-role="trigger"]'
+var THUMBNAIL_LINK_SELECTOR= '[data-image-role="trigger"]';
 
 //number between 1-5
 const RandomNumber = () => {
@@ -42,3 +42,10 @@ function setDetailsFromThumbnail(thumbnail) {
     setDetails(imageFromThumbnail(thumbnail), titleFromThumbnail(thumbnail));
 }
 
+//adding a event listener for an indiviudal thumbnail. 
+//we are using the variable var THUMBNAIL_LINK_SELECTOR= '[data-image-role="trigger"]', which refers to all the <a> tags in the li of the ul, of the thumbnail list.
+
+var firstThumbnail = document.querySelector(THUMBNAIL_LINK_SELECTOR);
+firstThumbnail.addEventListener('click', () => {
+    console.log('you clicked')
+})
