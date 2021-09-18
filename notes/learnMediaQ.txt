@@ -1,0 +1,29 @@
+Media Queries:
+
+eg.
+max-width:
+    - any width that is less than the max-width specified, all of the css within the query will take affect.
+
+so our case 
+min-width: 768px
+    - means if the width is at least 768px (x >= 768), then the affects will trigger. 
+        
+        in addition:
+            - overflow: hidden; 
+                -notice our mini images doesnt appear full width. perhaps that has to do with hidden. 
+        
+
+
+@media all and (min-width: 768px):
+
+    .thumbnail-item {
+        max-width: 260px;
+    }
+
+    .thumbnail-item + .thumbnail-item {
+        margin-top: 20px;
+    }
+
+so if the min-width of the screen is 768px, the image tag should have max-width of 260px.
+- wtf is .thumbnail-item + .thumbnail-item 
+    - ok its inside the gallery, each image has a margin-top, to separate it. 
