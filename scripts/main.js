@@ -42,10 +42,29 @@ function setDetailsFromThumbnail(thumbnail) {
     setDetails(imageFromThumbnail(thumbnail), titleFromThumbnail(thumbnail));
 }
 
+function addThumbClickHandler(thumb) {
+    'use strict';
+    thumb.addEventListener('click', (event) => {
+        event.preventDefault();
+        setDetailsFromThumbnail(thumb);
+    })
+}
+
+function getThumbnailsArray() {
+    'use strict';
+    var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
+    var thumbnailArrays = [].slice.call(thumbnails);
+    return thumbnailArrays;
+}
+
+function initializeEvents() {
+    'use strict';
+    var thumbnails = getThumbnailsArray();
+    thumbnails.forEach(addThumbClickHandler);
+}
+
+initializeEvents();
+
 //adding a event listener for an indiviudal thumbnail. 
 //we are using the variable var THUMBNAIL_LINK_SELECTOR= '[data-image-role="trigger"]', which refers to all the <a> tags in the li of the ul, of the thumbnail list.
 
-var firstThumbnail = document.querySelector(THUMBNAIL_LINK_SELECTOR);
-firstThumbnail.addEventListener('click', () => {
-    console.log('you clicked')
-})
