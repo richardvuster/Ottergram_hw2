@@ -1,7 +1,6 @@
 
 //get all the thumbnail
 var thumbnails = document.getElementsByClassName("thumbnail-item");
-
 var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
 var THUMBNAIL_LINK_SELECTOR= '[data-image-role="trigger"]';
@@ -124,11 +123,13 @@ function previousImage(){
     newDetailImage = thumbnails[currentIndex-1].getAttribute('data-image-url');
     newDetailTitle = thumbnails[currentIndex-1].getAttribute('data-image-title');
 
+    
     var thumbnailImage = document.getElementsByClassName('detail-image')[0]
     thumbnailImage.setAttribute('src', newDetailImage);
 
     var thumbnailTitle = document.getElementsByClassName('detail-image-title')[0]
     thumbnailTitle.textContent = newDetailTitle;
+
 }
 
 function nextImage() {
@@ -150,6 +151,7 @@ function nextImage() {
 
     var thumbnailTitle = document.getElementsByClassName('detail-image-title')[0]
     thumbnailTitle.textContent = newDetailTitle;
+    
 }
 function buttons() {
 
@@ -173,8 +175,3 @@ function initializeEvents() {
 }
 
 initializeEvents();
-
-//adding a event listener for an indiviudal thumbnail. 
-//we are using the variable var THUMBNAIL_LINK_SELECTOR= '[data-image-role="trigger"]', which refers to all the <a> tags in the li of the ul, of the thumbnail list.
-
-
