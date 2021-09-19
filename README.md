@@ -1,3 +1,3 @@
 # Ottergram
 
-HW1 -  Ottergram including flexbox froggy and grid garden
+HW2 -  Up to Chapter 7 && create buttons 
