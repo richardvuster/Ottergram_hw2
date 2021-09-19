@@ -91,11 +91,85 @@ function addKeyPressHandler() {
     })
 }
 
+/*
+
+Firs thing to do, get a new array 
+var thumbnails = Array.from(document.getElementsByClassName('thumbnail-item'))
+thumbnails[0].firstElementChild.getAttribute('')
+
+//match a number 
+var number "resources/ottergram-resources/img/otter2.jpg".match(/\d/)[0] 
+
+changing the source 
+detailImageSrc = document.getELementByClassName("detail-image")[0]
+detailImageSrc.setAttribute('src', newAdress)
+
+detailImageTitle = document.getElementByClassName("detail-image-title)[0].textContent
+
+
+*/
+
+function previousImage(){
+    
+    var thumbnails = getThumbnailsArray()
+  
+    var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR).getAttribute('src')
+    var newDetailTitle;
+    var newDetailImage;
+   
+    var currentIndex = parseInt(detailImage.match(/\d/)[0])
+
+    currentIndex = (currentIndex === 1 ? thumbnails.length : currentIndex - 1);
+    
+    newDetailImage = thumbnails[currentIndex-1].getAttribute('data-image-url');
+    newDetailTitle = thumbnails[currentIndex-1].getAttribute('data-image-title');
+
+    var thumbnailImage = document.getElementsByClassName('detail-image')[0]
+    thumbnailImage.setAttribute('src', newDetailImage);
+
+    var thumbnailTitle = document.getElementsByClassName('detail-image-title')[0]
+    thumbnailTitle.textContent = newDetailTitle;
+}
+
+function nextImage() {
+    var thumbnails = getThumbnailsArray()
+  
+    var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR).getAttribute('src')
+    var newDetailTitle;
+    var newDetailImage;
+   
+    var currentIndex = parseInt(detailImage.match(/\d/)[0])
+
+    currentIndex = (currentIndex === thumbnails.length ? 1 : currentIndex + 1);
+    
+    newDetailImage = thumbnails[currentIndex-1].getAttribute('data-image-url');
+    newDetailTitle = thumbnails[currentIndex-1].getAttribute('data-image-title');
+    
+    var thumbnailImage = document.getElementsByClassName('detail-image')[0]
+    thumbnailImage.setAttribute('src', newDetailImage);
+
+    var thumbnailTitle = document.getElementsByClassName('detail-image-title')[0]
+    thumbnailTitle.textContent = newDetailTitle;
+}
+function buttons() {
+
+    document.getElementById('previousButton').addEventListener('click', (event) => {
+        event.preventDefault();
+        previousImage();
+    });
+
+    document.getElementById('nextButton').addEventListener('click', (event) => {
+        event.preventDefault();
+        nextImage();
+    });
+}
+
 function initializeEvents() {
     'use strict';
     var thumbnails = getThumbnailsArray();
     thumbnails.forEach(addThumbClickHandler);
     addKeyPressHandler();
+    buttons();
 }
 
 initializeEvents();
